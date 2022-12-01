@@ -4,10 +4,8 @@ fun main() {
             if (line.isEmpty()) {
                 acc.plusElement(0)
             } else {
-                val currentElf = acc.last()
-                val previousElves: List<Int> = acc.dropLast(1)
-                val newCurrentElf = currentElf + line.toInt()
-                previousElves.plusElement(newCurrentElf)
+                acc.dropLast(1)
+                    .plusElement(acc.last() + line.toInt())
             }
         }
 
