@@ -1,13 +1,14 @@
-sealed class RockPaperScissors(
-    private val score: Int,
+enum class RockPaperScissors(
+    private val scoreForUsing: Int,
 ) {
+    ROCK(1),
+    PAPER(2),
+    SCISSORS(3);
 
     fun isBeatenBy() =
-        when (this) {
-             SCISSORS -> ROCK
-             ROCK -> PAPER
-             PAPER -> SCISSORS
-        }
+        values().first { it.beats(this) }
+
+    fun beats(other: RockPaperScissors) = beats() == other
 
     fun beats() =
         when (this) {
@@ -18,11 +19,11 @@ sealed class RockPaperScissors(
 
     fun scoreAgainst(other: RockPaperScissors) =
         when {
-            other.beats() == this -> 0
+            other.beats(this) -> 0
             this == other -> 3
-            this.beats() == other -> 6
-            else -> throw IllegalStateException()
-        } + score
+            this.beats(other) -> 6
+            else -> throw IllegalArgumentException()
+        } + scoreForUsing
 
 
     companion object {
@@ -37,23 +38,20 @@ sealed class RockPaperScissors(
 
 }
 
-object ROCK : RockPaperScissors(1)
-object PAPER : RockPaperScissors(2)
-object SCISSORS : RockPaperScissors(3)
 
 fun Char.parse() = RockPaperScissors.parse(this)
 
 fun day02Part1(input: List<String>): Int =
     input.sumOf { line ->
-        val (other, you) = line.toCharArray().filterNot { it == ' ' }.map { it.parse() }
+        val other = line[0].parse()
+        val you = line[2].parse()
         you.scoreAgainst(other)
     }
-
 
 fun day02Part2(input: List<String>): Int =
     input.sumOf { line ->
         val other = line[0].parse()
-        val you = when(line[2]) {
+        val you = when (line[2]) {
             'X' -> other.beats()
             'Y' -> other
             'Z' -> other.isBeatenBy()
