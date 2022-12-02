@@ -19,14 +19,14 @@ enum class RockPaperScissors(
     fun isBeatenBy() =
         values().first { it.beats(this) }
 
-    private fun beats(other: RockPaperScissors) = beats() == other
+    private infix fun beats(other: RockPaperScissors) = beats() == other
 
 
     fun scoreAgainst(other: RockPaperScissors) =
         when {
-            other.beats(this) -> 0
+            other beats this -> 0
             this == other -> 3
-            this.beats(other) -> 6
+            this beats other -> 6
             else -> throw IllegalArgumentException()
         } + scoreForUsing
 }
@@ -39,7 +39,7 @@ fun Char.parse() = when (this) {
     else -> throw IllegalArgumentException("not a valid char: $this")
 }
 
-fun List<String>.determineScore(extractYou: (Char, RockPaperScissors) -> RockPaperScissors) =
+fun List<String>.scoreAllRounds(extractYou: (Char, RockPaperScissors) -> RockPaperScissors) =
     this.sumOf { line ->
         val other = line[0].parse()
         val you = extractYou(line[2], other)
@@ -47,8 +47,8 @@ fun List<String>.determineScore(extractYou: (Char, RockPaperScissors) -> RockPap
     }
 
 fun day02Part1(input: List<String>): Int =
-    input.determineScore { c, _ ->
-        when (c) {
+    input.scoreAllRounds { yourMoveChar, _ ->
+        when (yourMoveChar) {
             'X' -> ROCK
             'Y' -> PAPER
             'Z' -> SCISSORS
@@ -57,8 +57,8 @@ fun day02Part1(input: List<String>): Int =
     }
 
 fun day02Part2(input: List<String>): Int =
-    input.determineScore { c, other ->
-        when (c) {
+    input.scoreAllRounds { yourMoveChar, other ->
+        when (yourMoveChar) {
             'X' -> other.beats()
             'Y' -> other
             'Z' -> other.isBeatenBy()
