@@ -1,26 +1,16 @@
-fun main() {
-    fun caloriesPerElf(input: List<String>) =
-        input.fold(listOf(0)) { acc, line ->
-            if (line.isEmpty()) {
-                acc.plusElement(0)
-            } else {
-                acc.dropLast(1)
-                    .plusElement(acc.last() + line.toInt())
-            }
+
+fun List<Int>.addToLast(e: Int) = this.dropLast(1).plusElement(last() + e)
+
+fun day01Part1(input: List<String>) = caloriesPerElf(input).max()
+
+fun day01Part2(input: List<String>): Int =
+    caloriesPerElf(input).sortedDescending().take(3).sum()
+
+fun caloriesPerElf(input: List<String>) =
+    input.fold(listOf(0)) { acc, line ->
+        when (line){
+            "" -> acc.plusElement(0)
+            else -> acc.addToLast(line.toInt())
         }
+    }
 
-    fun part1(input: List<String>): Int =
-        caloriesPerElf(input).max()
-
-    fun part2(input: List<String>): Int =
-        caloriesPerElf(input).sortedDescending().take(3).sum()
-
-    // test if implementation meets criteria from the description, like:
-    val testInput = readInput("Day01_test")
-    check(part1(testInput) == 24000)
-    val input = readInput("Day01")
-    println(part1(input))
-
-    check(part2(testInput) == 45000)
-    println(part2(input))
-}
