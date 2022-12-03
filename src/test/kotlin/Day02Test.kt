@@ -1,7 +1,7 @@
 import io.kotest.matchers.shouldBe
 import kotlin.test.Test
 
-internal class Day02KtTest {
+internal class Day02Test {
 
     private val testInput = readInput("Day02_test")
     private val input = readInput("Day02")
