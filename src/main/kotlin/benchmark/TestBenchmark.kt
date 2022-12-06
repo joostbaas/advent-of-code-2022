@@ -10,6 +10,8 @@ import day04Part1
 import day04Part2
 import day05Part1
 import day05Part2
+import day06Part1
+import day06Part2
 import kotlinx.benchmark.Scope
 import org.openjdk.jmh.annotations.Benchmark
 import org.openjdk.jmh.annotations.Fork
@@ -31,6 +33,7 @@ open class TestBenchmark {
     private val input3 = readInput("Day03")
     private val input4 = readInput("Day04")
     private val input5 = readInput("Day05")
+    private val input6 = readInput("Day06")[0]
 
     @Benchmark fun day01_1() = day01Part1(input1)
     @Benchmark fun day01_2() = day01Part2(input1)
@@ -42,4 +45,6 @@ open class TestBenchmark {
     @Benchmark fun day04_2() = day04Part2(input4)
     @Benchmark fun day05_1() = day05Part1(input5)
     @Benchmark fun day05_2() = day05Part2(input5)
+    @Benchmark fun day06_1() = day06Part1(input6)
+    @Benchmark fun day06_2() = day06Part2(input6)
 }
