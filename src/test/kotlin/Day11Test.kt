@@ -5,35 +5,33 @@ import kotlin.test.Test
 
 internal class Day11Test {
 
-    private val testInput = readInput("Day11_test")
-    private val input = readInput("Day11")
-
-    private val testMonkeys = listOf(
-        Monkey(
-            itemIds = listOf(79, 98),
-            operation = { it.worryValue * 19 },
-            test = Test(23, monkey(2), monkey(3))
-        ),
-        Monkey(
-            itemIds = listOf(54, 65, 75, 74),
-            operation = { it.worryValue + 6 },
-            test = Test(19, monkey(2), monkey(0))
-        ),
-        Monkey(
-            itemIds = listOf(79, 60, 97),
-            operation = { it.worryValue * it.worryValue },
-            test = Test(13, monkey(1), monkey(3))
-        ),
-        Monkey(
-            itemIds = listOf(74),
-            operation = { it.worryValue + 3 },
-            test = Test(17, monkey(0), monkey(1))
-        ),
-    )
+    private val testMonkeys =
+        listOf(
+            Monkey(
+                itemIds = listOf(79, 98),
+                operation = { Item(it.worryValue * 19) },
+                test = Test(23, monkey(2), monkey(3))
+            ),
+            Monkey(
+                itemIds = listOf(54, 65, 75, 74),
+                operation = { Item(it.worryValue + 6) },
+                test = Test(19, monkey(2), monkey(0))
+            ),
+            Monkey(
+                itemIds = listOf(79, 60, 97),
+                operation = { Item(it.worryValue * it.worryValue) },
+                test = Test(13, monkey(1), monkey(3))
+            ),
+            Monkey(
+                itemIds = listOf(74),
+                operation = { Item(it.worryValue + 3) },
+                test = Test(17, monkey(0), monkey(1))
+            ),
+        )
 
     @Test
     fun createMonkey() {
-        val testMonkey0 = testMonkeys[0]
+        val testMonkey0 = testMonkeys[0].copy()
 
         val itemsThrown = testMonkey0.turn()
 
@@ -80,19 +78,23 @@ internal class Day11Test {
                 day11Part1(testMonkeys) shouldBe 10605
             },
             dynamicTest("answer part 1") {
-                day11Part1(testMonkeys) shouldBe TODO()
+                day11Part1(realMonkeys) shouldBe 98280
             }
         )
 
+
+    companion object {
+        private const val testDivisor = 23 * 19 * 13 * 17
+    }
 
     @TestFactory
     fun `part 2`() =
         listOf(
             dynamicTest("test part 2") {
-                day11Part2(testInput) shouldBe 10605
+                day11Part2(testMonkeys, testDivisor) shouldBe 2713310158
             },
             dynamicTest("answer part 2") {
-                day11Part2(input) shouldBe TODO()
+                day11Part2(realMonkeys, realDivisor) shouldBe 17673687232
             }
         )
 }
