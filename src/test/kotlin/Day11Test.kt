@@ -10,22 +10,22 @@ internal class Day11Test {
             Monkey(
                 itemIds = listOf(79, 98),
                 operation = { Item(it.worryValue * 19) },
-                test = Test(23, monkey(2), monkey(3))
+                test = Monkey.Test(23, monkey(2), monkey(3))
             ),
             Monkey(
                 itemIds = listOf(54, 65, 75, 74),
                 operation = { Item(it.worryValue + 6) },
-                test = Test(19, monkey(2), monkey(0))
+                test = Monkey.Test(19, monkey(2), monkey(0))
             ),
             Monkey(
                 itemIds = listOf(79, 60, 97),
                 operation = { Item(it.worryValue * it.worryValue) },
-                test = Test(13, monkey(1), monkey(3))
+                test = Monkey.Test(13, monkey(1), monkey(3))
             ),
             Monkey(
                 itemIds = listOf(74),
                 operation = { Item(it.worryValue + 3) },
-                test = Test(17, monkey(0), monkey(1))
+                test = Monkey.Test(17, monkey(0), monkey(1))
             ),
         )
 

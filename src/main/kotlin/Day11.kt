@@ -1,3 +1,5 @@
+import Monkey.Test
+
 val realMonkeys: List<Monkey>
     get() =
         listOf(
@@ -107,15 +109,15 @@ data class Monkey(
             }
 
     private fun `throw`(itemToMonkey: Pair<Item, MonkeyId>) = itemToMonkey
-}
 
-class Test(
-    private val divisor: Int,
-    private val whenTrue: MonkeyId,
-    private val whenFalse: MonkeyId,
-) : (Item) -> MonkeyId {
-    override fun invoke(item: Item): MonkeyId =
-        if (item.worryValue % divisor == 0L) whenTrue else whenFalse
+    class Test(
+        private val divisor: Int,
+        private val whenTrue: MonkeyId,
+        private val whenFalse: MonkeyId,
+    ) : (Item) -> MonkeyId {
+        override fun invoke(item: Item): MonkeyId =
+            if (item.worryValue % divisor == 0L) whenTrue else whenFalse
+    }
 }
 
 private fun calculateMonkeyBusiness(monkeys: List<Monkey>, numberOfRounds: Int) =
