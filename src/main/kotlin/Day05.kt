@@ -42,7 +42,7 @@ fun List<String>.parseStacks(): Stacks {
     val chars = this.reversed().map { line -> line.chunked(4).map { it[1] } }
     val stackIds = chars.first()
     return List(stackIds.size) { i: Int ->
-        chars.map { it[i] }
+        chars.map { it.getOrNull(i) ?: ' '}
     }.map { it.parseStack() }
         .let {
             persistentMapOf<Char, Stack>().putAll(it)
