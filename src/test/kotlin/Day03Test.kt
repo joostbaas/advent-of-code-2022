@@ -11,13 +11,13 @@ internal class Day03Test {
         day03Part1(listOf("vJrwpWtwJgWrhcsFMMfFFhFp")) shouldBe 16
         day03Part1(listOf("jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL")) shouldBe 38
         day03Part1(testInput) shouldBe 157
-        day03Part1(input) shouldBe 8185
+        day03Part1(input) shouldBe 7428
     }
 
 
     @Test
     fun `part 2`() {
         day03Part2(testInput) shouldBe 70
-        day03Part2(input) shouldBe 2817
+        day03Part2(input) shouldBe 2650
     }
 }

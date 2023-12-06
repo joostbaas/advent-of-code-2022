@@ -9,12 +9,12 @@ internal class Day01Test {
     @Test
     fun `part 1`() {
         day01Part1(testInput) shouldBe 24000
-        day01Part1(input) shouldBe 68292
+        day01Part1(input) shouldBe 69206
     }
 
     @Test
     fun `part 2`() {
         day01Part2(testInput) shouldBe 45000
-        day01Part2(input) shouldBe 203203
+        day01Part2(input) shouldBe 197400
     }
 }

@@ -13,13 +13,13 @@ internal class Day12Test {
     @TestFactory
     fun `part 1`() = listOf(
         DynamicTest.dynamicTest("example") { day12Part1(testInput) shouldBe 31 },
-        DynamicTest.dynamicTest("answer") { day12Part1(input) shouldBe 350 },
+        DynamicTest.dynamicTest("answer") { day12Part1(input) shouldBe 370 },
     )
 
 
     @Test
     fun `part 2`() {
         day12Part2(testInput) shouldBe 29
-        day12Part2(input) shouldBe 349
+        day12Part2(input) shouldBe 363
     }
 }

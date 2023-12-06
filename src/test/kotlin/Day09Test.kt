@@ -9,7 +9,7 @@ internal class Day09Test {
     @Test
     fun `part 1`() {
         day09Part1(testInput) shouldBe 13
-        day09Part1(input) shouldBe 6498
+        day09Part1(input) shouldBe 6314
     }
 
     @Test
@@ -34,6 +34,6 @@ internal class Day09Test {
             )
         ) shouldBe 36
 
-        day09Part2(input) shouldBe 2531
+        day09Part2(input) shouldBe 2504
     }
 }

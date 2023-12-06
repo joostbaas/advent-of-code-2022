@@ -4,44 +4,44 @@ val realMonkeys: List<Monkey>
     get() =
         listOf(
             Monkey(
-                itemIds = listOf(56, 52, 58, 96, 70, 75, 72),
-                operation = { Item(it.worryValue * 17) },
-                test = Test(11, monkey(2), monkey(3))
-            ),
-            Monkey(
-                itemIds = listOf(75, 58, 86, 80, 55, 81),
-                operation = { Item(it.worryValue + 7) },
-                test = Test(3, monkey(6), monkey(5))
-            ),
-            Monkey(
-                itemIds = listOf(73, 68, 73, 90),
-                operation = { Item(it.worryValue * it.worryValue) },
-                test = Test(5, monkey(1), monkey(7))
-            ),
-            Monkey(
-                itemIds = listOf(72, 89, 55, 51, 59),
-                operation = { Item(it.worryValue + 1) },
-                test = Test(7, monkey(2), monkey(7))
-            ),
-            Monkey(
-                itemIds = listOf(76, 76, 91),
+                itemIds = listOf(65, 78),
                 operation = { Item(it.worryValue * 3) },
-                test = Test(19, monkey(0), monkey(3))
+                test = Test(5, monkey(2), monkey(3))
             ),
             Monkey(
-                itemIds = listOf(88),
-                operation = { Item(it.worryValue + 4) },
-                test = Test(2, monkey(6), monkey(4))
-            ),
-            Monkey(
-                itemIds = listOf(64, 63, 56, 50, 77, 55, 55, 86),
+                itemIds = listOf(54, 78, 86, 79, 73, 64, 85, 88),
                 operation = { Item(it.worryValue + 8) },
-                test = Test(13, monkey(4), monkey(0))
+                test = Test(11, monkey(4), monkey(7))
             ),
             Monkey(
-                itemIds = listOf(79, 58),
-                operation = { Item(it.worryValue + 6) },
-                test = Test(17, monkey(1), monkey(5))
+                itemIds = listOf(69, 97, 77, 88, 87),
+                operation = { Item(it.worryValue + 2) },
+                test = Test(2, monkey(5), monkey(3))
+            ),
+            Monkey(
+                itemIds = listOf(99),
+                operation = { Item(it.worryValue + 4) },
+                test = Test(13, monkey(1), monkey(5))
+            ),
+            Monkey(
+                itemIds = listOf(60, 57, 52),
+                operation = { Item(it.worryValue * 19) },
+                test = Test(7, monkey(7), monkey(6))
+            ),
+            Monkey(
+                itemIds = listOf(91, 82, 85, 73, 84, 53),
+                operation = { Item(it.worryValue + 5) },
+                test = Test(3, monkey(4), monkey(1))
+            ),
+            Monkey(
+                itemIds = listOf(88, 74, 68, 56),
+                operation = { Item(it.worryValue * it.worryValue) },
+                test = Test(17, monkey(0), monkey(2))
+            ),
+            Monkey(
+                itemIds = listOf(54, 82, 72, 71, 53, 99, 67),
+                operation = { Item(it.worryValue + 1) },
+                test = Test(19, monkey(6), monkey(0))
             ),
         ).map { monkey -> monkey.copy(items = mutableListOf<Item>().apply { addAll(monkey.items) } )  }
 

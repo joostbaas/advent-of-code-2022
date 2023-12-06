@@ -9,14 +9,14 @@ internal class Day05Test {
     @Test
     fun `part 1`() {
         day05Part1(testInput) shouldBe "CMZ"
-        day05Part1(input) shouldBe "PTWLTDSJV"
+        day05Part1(input) shouldBe "ZBDRNPMVH"
     }
 
 
     @Test
     fun `part 2`() {
         day05Part2(testInput) shouldBe "MCD"
-        day05Part2(input) shouldBe "WZMFVGGZP"
+        day05Part2(input) shouldBe "WDLPFNNNB"
     }
 
 }

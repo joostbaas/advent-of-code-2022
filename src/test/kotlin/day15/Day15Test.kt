@@ -21,13 +21,13 @@ internal class Day15Test {
     @TestFactory
     fun `part 1`() = listOf(
         dynamicTest("example") { day15Part1(testInput, 10) shouldBe 26 },
-        dynamicTest("answer ") { day15Part1(input, 2_000_000) shouldBe 5100463 },
+        dynamicTest("answer ") { day15Part1(input, 2_000_000) shouldBe 4748135 },
     )
 
     @TestFactory
     fun `part 2`() = listOf(
         dynamicTest("example") { day15Part2(testInput, 20) shouldBe 56_000_011 },
-        dynamicTest("answer") { day15Part2(input, 4_000_000) shouldBe 11557863040754 }, // higher than 106047218
+        dynamicTest("answer") { day15Part2(input, 4_000_000) shouldBe 13743542639657 }, // higher than 106047218
     )
 }
 

@@ -78,10 +78,9 @@ internal class Day11Test {
                 day11Part1(testMonkeys) shouldBe 10605
             },
             dynamicTest("answer part 1") {
-                day11Part1(realMonkeys) shouldBe 98280
+                day11Part1(realMonkeys) shouldBe 110264
             }
         )
-
 
     companion object {
         private const val testDivisor = 23 * 19 * 13 * 17
@@ -94,7 +93,7 @@ internal class Day11Test {
                 day11Part2(testMonkeys, testDivisor) shouldBe 2713310158
             },
             dynamicTest("answer part 2") {
-                day11Part2(realMonkeys, realDivisor) shouldBe 17673687232
+                day11Part2(realMonkeys, realDivisor) shouldBe 23612457316
             }
         )
 }

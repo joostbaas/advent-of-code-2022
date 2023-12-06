@@ -9,13 +9,13 @@ internal class Day02Test {
     @Test
     fun `part 1`() {
         day02Part1(testInput) shouldBe 15
-        day02Part1(input) shouldBe 13526
+        day02Part1(input) shouldBe 10816
     }
 
 
     @Test
     fun `part 2`() {
         day02Part2(testInput) shouldBe 12
-        day02Part2(input) shouldBe 14204
+        day02Part2(input) shouldBe 11657
     }
 }
